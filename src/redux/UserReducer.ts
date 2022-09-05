@@ -1,14 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Album } from '../Types/AlbumType';
+import { Post } from '../Types/PostType';
 import { User } from '../Types/UserType';
 
 interface InitialState {
   users: User[],
-  textError: string,
+  posts: Post[],
+  albums: Album[],
+  chosenPosts: Post[],
+  chosenAlbums: Album[],
 }
 
 const initialState: InitialState = {
   users: [],
-  textError: '',
+  posts: [],
+  albums: [],
+  chosenPosts: [],
+  chosenAlbums: [],
 };
 
 const userReducer = createSlice({
@@ -21,10 +29,28 @@ const userReducer = createSlice({
         users: action.payload,
       };
     },
-    setTextError: (state, action) => {
+    setPostsInfo: (state, action) => {
       return {
         ...state,
-        textError: action.payload,
+        posts: action.payload,
+      };
+    },
+    setAlbumsInfo: (state, action) => {
+      return {
+        ...state,
+        albums: action.payload,
+      };
+    },
+    setChosenPosts: (state, action) => {
+      return {
+        ...state,
+        chosenPosts: action.payload,
+      };
+    },
+    setChosenAlbums: (state, action) => {
+      return {
+        ...state,
+        chosenAlbums: action.payload,
       };
     },
   },
@@ -32,12 +58,18 @@ const userReducer = createSlice({
 
 export const selectors = {
   getUsersInfo: (state: InitialState) => state.users,
-  getTextError: (state: InitialState) => state.textError,
+  getPostsInfo: (state: InitialState) => state.posts,
+  getAlbumsInfo: (state: InitialState) => state.albums,
+  getChosenPosts: (state: InitialState) => state.chosenPosts,
+  getChosenAlbums: (state: InitialState) => state.chosenAlbums,
 };
 
 export const {
   setUsersInfo,
-  setTextError,
+  setPostsInfo,
+  setAlbumsInfo,
+  setChosenPosts,
+  setChosenAlbums,
 } = userReducer.actions;
 
 export const { reducer } = userReducer;

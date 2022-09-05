@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 import { NotFound } from './components/NotFound';
 import { Posts } from './components/Posts';
-import { UsersList } from './components/UsersList';
+import { UsersList } from './components/UsersInfo';
 
 export const App: React.FC = () => {
   return (

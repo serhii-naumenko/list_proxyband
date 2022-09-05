@@ -1,4 +1,4 @@
-# React TypeScript Starter Pack
+# Main task
 
 To use this template click `Use this template`
 
