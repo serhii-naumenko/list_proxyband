@@ -1,13 +1,16 @@
+@import '../../styles/-vars.scss';
+
 .UsersTable {
+  transition: background-color 0.3s;
   
   &__row {
     &:hover {
-      background-color: bisque;
+      background-color: $background-chosen-row-table;
     }
   }
 
   &__text {
-    border: 1px solid black;
+    border: 1px solid $color-border-table;
     padding: 10px;
     width: 30%;
     font-size: 25px;
@@ -28,6 +31,7 @@
     padding: 5px;
     background-color: #fff;
     width: 100%;
+    transition: all 0.3s;
 
     &:hover {
       background-color: rgb(183, 171, 171);

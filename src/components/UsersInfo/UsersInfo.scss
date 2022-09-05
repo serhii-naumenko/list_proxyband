@@ -1,8 +1,10 @@
+@import '../../styles/-vars.scss';
+
 .UsersInfo {
   padding: 20px;
 
   &__textError {
-    color: red;
+    color: $color-problem;
     font-size: 25px;
     font-weight: bold;
     text-align: center;
@@ -11,7 +13,7 @@
   &__table {
     border-spacing: 0;
     border-collapse: collapse;
-    border: 3px solid black;
+    border: 3px solid $color-border-table;
     overflow-x: auto;
     width: 100%;
   }
@@ -28,16 +30,16 @@
   &__head {
     position: sticky;
     top: 0;
-    border: 3px solid black;
+    border: 3px solid $color-border-table;
     
     &--row {
       font-weight: bolder;
-      background-color: aquamarine;
+      background-color: $background-head-table;
     }
     
     &--cell {
       padding: 10px;
-      border: 1px solid black;
+      border: 1px solid $color-border-table;
       vertical-align: middle;
     }
   }

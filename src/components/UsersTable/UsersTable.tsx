@@ -15,7 +15,9 @@ export const UsersTable: React.FC = () => {
     const chosenPosts = gottenPosts.filter((post) => post.userId === chosenId);
 
     dispatch(setChosenPosts(chosenPosts));
-    navigate('/userId');
+    localStorage.setItem('posts', JSON.stringify(chosenPosts));
+
+    navigate(`/${chosenId}`);
   }, [gottenPosts]);
 
   return (

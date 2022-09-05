@@ -11,7 +11,7 @@ export const App: React.FC = () => {
       <Routes>
         <Route path="/">
           <Route index element={<UsersList />} />
-          <Route path="userId" element={<Posts />} />
+          <Route path=":userId" element={<Posts />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

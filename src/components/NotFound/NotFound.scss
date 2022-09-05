@@ -1,6 +1,8 @@
+@import '../../styles/-vars.scss';
+
 .NotFound {
   text-align: center;
-  color: red;
+  color: $color-problem;
   font-size: 40px;
   margin-top: 20px;
   letter-spacing: 5px;

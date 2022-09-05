@@ -3,6 +3,13 @@ import { Album } from '../Types/AlbumType';
 import { Post } from '../Types/PostType';
 import { User } from '../Types/UserType';
 
+const postsFromStorage = localStorage.getItem('posts');
+let postsToRender = [];
+
+if (postsFromStorage !== null) {
+  postsToRender = JSON.parse(postsFromStorage);
+}
+
 interface InitialState {
   users: User[],
   posts: Post[],
@@ -15,7 +22,7 @@ const initialState: InitialState = {
   users: [],
   posts: [],
   albums: [],
-  chosenPosts: [],
+  chosenPosts: postsToRender,
   chosenAlbums: [],
 };
 
