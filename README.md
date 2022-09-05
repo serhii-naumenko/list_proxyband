@@ -11,3 +11,5 @@
 - React.js, React-redux, Redux-toolkit, React-router,
 - React-modal, fetch, localStorage, HTML5, Sass,
 - JavaScript, Typescript
+
+DEMO[https://serhii-naumenko.github.io/list_proxyband/]
