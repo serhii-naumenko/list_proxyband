@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getInfoFromServer } from '../../api/api';
 import {
+  selectors,
   setAlbumsInfo,
   setPostsInfo,
   setUsersInfo,
@@ -9,11 +10,13 @@ import {
 import { Album } from '../../Types/AlbumType';
 import { Post } from '../../Types/PostType';
 import { User } from '../../Types/UserType';
+import { Loader } from '../Loader';
 import { UsersTable } from '../UsersTable';
 import './UsersInfo.scss';
 
 export const UsersList: React.FC = () => {
   const [textError, setTextError] = useState('');
+  const usersStart = useSelector(selectors.getUsersInfo);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,6 +37,10 @@ export const UsersList: React.FC = () => {
 
     response();
   }, []);
+
+  if (usersStart.length === 0) {
+    return (<Loader />);
+  }
 
   return (
     <div className="UsersInfo">
