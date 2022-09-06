@@ -2,20 +2,19 @@ import React, { useCallback, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectors, setChosenPosts } from '../../redux/UserReducer';
+import { selectors, setChosenNameStore, setChosenPosts } from '../../redux/UserReducer';
 import { Album } from '../../Types/AlbumType';
 import { User } from '../../Types/UserType';
+import { ModalContent } from '../ModalContent';
 import './UsersTable.scss';
 
 const customStyles = {
   overlay: { backgroundColor: 'grey' },
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: '50px',
+    left: '150px',
+    right: '150px',
+    bottom: '50px',
     padding: '10px 80px',
   },
 };
@@ -34,6 +33,12 @@ export const UsersTable: React.FC = () => {
 
   const handlerPosts = useCallback((chosenId) => {
     const chosenPosts = gottenPosts.filter((post) => post.userId === chosenId);
+    const chosenUser = usersFromServer.find((user) => user.id === chosenId);
+
+    if (chosenUser) {
+      dispatch(setChosenNameStore(chosenUser.name));
+      localStorage.setItem('name', JSON.stringify(chosenUser.name));
+    }
 
     dispatch(setChosenPosts(chosenPosts));
     localStorage.setItem('posts', JSON.stringify(chosenPosts));
@@ -50,8 +55,6 @@ export const UsersTable: React.FC = () => {
     }
 
     setIsOpen(true);
-    // dispatch(setChosenAlbums(chosenAlbums));
-    localStorage.setItem('albums', JSON.stringify(albumsToRender));
     setChosenAlbums(albumsToRender);
   }, [gottenAlbums, isOpen]);
 
@@ -103,34 +106,11 @@ export const UsersTable: React.FC = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div className="Modal">
-          <button
-            type="button"
-            title="close the popup"
-            className="Modal__button"
-            onClick={modalIsClose}
-          >
-            X
-          </button>
-          <h1 className="Modal__title">
-            {`Albums of the user ${chosenName}`}
-          </h1>
-          <ul className="Modal__list">
-            {chosenAlbums.map((album) => (
-              <li
-                className="Modal__item"
-                key={album.id}
-              >
-                <p className="Modal__album-id">
-                  {`ID - ${album.id}`}
-                </p>
-                <p className="Modal__album-title">
-                  {album.title}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ModalContent
+          chosenAlbums={chosenAlbums}
+          chosenName={chosenName}
+          modalIsClose={modalIsClose}
+        />
       </Modal>
     </>
   );

@@ -10,12 +10,19 @@ if (postsFromStorage !== null) {
   postsToRender = JSON.parse(postsFromStorage);
 }
 
+const nameFromStorage = localStorage.getItem('name');
+let nameToTitle = '';
+
+if (nameFromStorage !== null) {
+  nameToTitle = JSON.parse(nameFromStorage);
+}
+
 interface InitialState {
   users: User[],
   posts: Post[],
   albums: Album[],
   chosenPosts: Post[],
-  chosenAlbums: Album[],
+  chosenName: string,
 }
 
 const initialState: InitialState = {
@@ -23,7 +30,7 @@ const initialState: InitialState = {
   posts: [],
   albums: [],
   chosenPosts: postsToRender,
-  chosenAlbums: [],
+  chosenName: nameToTitle,
 };
 
 const userReducer = createSlice({
@@ -54,10 +61,10 @@ const userReducer = createSlice({
         chosenPosts: action.payload,
       };
     },
-    setChosenAlbums: (state, action) => {
+    setChosenNameStore: (state, action) => {
       return {
         ...state,
-        chosenAlbums: action.payload,
+        chosenName: action.payload,
       };
     },
   },
@@ -68,7 +75,7 @@ export const selectors = {
   getPostsInfo: (state: InitialState) => state.posts,
   getAlbumsInfo: (state: InitialState) => state.albums,
   getChosenPosts: (state: InitialState) => state.chosenPosts,
-  getChosenAlbums: (state: InitialState) => state.chosenAlbums,
+  getChosenNameStore: (state: InitialState) => state.chosenName,
 };
 
 export const {
@@ -76,7 +83,7 @@ export const {
   setPostsInfo,
   setAlbumsInfo,
   setChosenPosts,
-  setChosenAlbums,
+  setChosenNameStore,
 } = userReducer.actions;
 
 export const { reducer } = userReducer;

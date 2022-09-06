@@ -63,7 +63,7 @@ export const UsersList: React.FC = () => {
                 <th
                   className="UsersInfo__head--cell"
                 >
-                  Surname
+                  Username
                 </th>
                 <th
                   className="UsersInfo__head--cell"

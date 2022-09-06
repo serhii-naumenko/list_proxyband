@@ -1,9 +1,10 @@
 @import '../../styles/-vars.scss';
 
 .NotFound {
+  margin-top: 20px;
+  
   text-align: center;
   color: $color-problem;
   font-size: 40px;
-  margin-top: 20px;
   letter-spacing: 5px;
 }
