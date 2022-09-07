@@ -18,7 +18,7 @@ export const ModalContent: React.FC<Props> = ({
       <button
         type="button"
         title="close the popup"
-        className="Modal__button"
+        className="ModalContent__button"
         onClick={modalIsClose}
       >
         X

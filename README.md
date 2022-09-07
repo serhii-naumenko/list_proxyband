@@ -1,17 +1,13 @@
-# Main task
+# list_proxyband
 
-- create a ReactJS application using the https://jsonplaceholder.typicode.com/ API.
-- display a list of users using the query /users
-- actions on the user element:
+[DEMO](https://serhii-naumenko.github.io/list_proxyband/)
 
--- when you click on the “posts” button, display his posts (/posts), on a separate page
+## Main task
 
--- when you click on the "albums" button, display his albums (/albums), in a modal window
+Create a ReactJS application using the https://jsonplaceholder.typicode.com/ API. Display a list of users using the query /users. Implement next actions. When you click on the “posts” button, display his posts (/posts), on a separate page. When you click on the "albums" button, display his albums (/albums), in a modal window.
 
 ## Stack
 
 - React.js, React-redux, Redux-toolkit, React-router,
-- React-modal, fetch, localStorage, HTML5, Sass,
+- REST API, HTML5, SASS, BEM
 - JavaScript, Typescript
-
-[DEMO](https://serhii-naumenko.github.io/list_proxyband/)

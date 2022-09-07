@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { selectors, setChosenNameStore, setChosenPosts } from '../../redux/UserReducer';
 import { Album } from '../../Types/AlbumType';
 import { User } from '../../Types/UserType';
@@ -25,7 +24,6 @@ export const UsersTable: React.FC = () => {
   const usersFromServer = useSelector(selectors.getUsersInfo);
   const gottenPosts = useSelector(selectors.getPostsInfo);
   const gottenAlbums = useSelector(selectors.getAlbumsInfo);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [chosenAlbums, setChosenAlbums] = useState<Album[]>([]);
@@ -43,7 +41,7 @@ export const UsersTable: React.FC = () => {
     dispatch(setChosenPosts(chosenPosts));
     localStorage.setItem('posts', JSON.stringify(chosenPosts));
 
-    navigate(`/${chosenId}`);
+    window.open(`/#/${chosenId}`, '_blank');
   }, [gottenPosts]);
 
   const handlerAlbums = useCallback((chosenId) => {
