@@ -2,19 +2,26 @@
 
 .Posts {
   position: relative;
-  padding: 20px 40px;
+  padding: 10px 40px 20px;
 
   &__returnUsers {
-    position: sticky;
-    top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    position: sticky;
+    top: 4px;
+
+    margin-left: calc(100vw - 347px);
     padding: 0 20px;
-    margin-left: calc(100vw - 334px);
+    width: 250px;
     height: 60px;
 
     background-color: $background-return-users;
     color: $color-return-users;
+    border: 2px solid black;
     border-radius: 10px;
+    text-decoration: none;
 
     transition: all 0.3s;
 

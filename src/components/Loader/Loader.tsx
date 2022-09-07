@@ -6,7 +6,7 @@ export const Loader: React.FC = () => {
   return (
     <div className="Loader">
       <div className="Loader__container">
-        <Spinner type="big" caption="Loader..." />
+        <Spinner type="big" caption="Loading..." />
       </div>
     </div>
   );
